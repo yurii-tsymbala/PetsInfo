@@ -7,7 +7,21 @@
 
 import Foundation
 
-class DataFetcher {
+enum DownloadServiceError: String {
+  case firstError = "Request Error"
+  case secondError = "Data Response Error"
+  case thirdError  = "File Decoding Error"
+  case fourthError = "Bad txt symbol. Failed to convert data from String"
+}
+
+typealias DownloadHandler = (Result<[Pet], DownloadServiceError>) -> Void
+
+class DownloadService {
+    
+    func fetchDataFromFile(completion: @escaping DownloadHandler) {
+        
+    }
+
     
     // MARK: refactor with async and handling result with error
     

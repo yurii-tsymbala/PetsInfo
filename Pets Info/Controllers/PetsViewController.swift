@@ -15,7 +15,7 @@ class PetsViewController: UIViewController {
         super.viewDidLoad()
         petsTableView.dataSource = self
         petsTableView.delegate = self
-        let dataFetcher = DataFetcher()
+        let dataFetcher = DownloadService()
         dataFetcher.fetchData()
     }
 }
