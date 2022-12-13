@@ -8,47 +8,35 @@
 import Foundation
 
 enum DownloadServiceError: String {
-  case firstError = "Request Error"
-  case secondError = "Data Response Error"
-  case thirdError  = "File Decoding Error"
-  case fourthError = "Bad txt symbol. Failed to convert data from String"
+    case firstError = "Json Decoding Error"
+    case secondError = "Data Response Error"
+    case thirdError  = "File Decoding Error"
 }
 
-typealias DownloadHandler = (Result<[Pet], DownloadServiceError>) -> Void
+typealias DownloadResponse = (Result<[Pet], DownloadServiceError>) -> Void
 
 class DownloadService {
     
-    func fetchDataFromFile(completion: @escaping DownloadHandler) {
+    func fetchDataFromFile(completion: @escaping DownloadResponse) {
         
-    }
-
-    
-    // MARK: refactor with async and handling result with error
-    
-    func fetchData() {
-        
-        var result: [Pet]?
-        let filename = "petsData"
+        let result: [Pet]?
         let data: Data
-        guard let file = Bundle.main.url(forResource: filename, withExtension: "json") else {
-                fatalError("Couldn't find \(filename) in main bundle.")
-            }
         
-            do {
-                data = try Data(contentsOf: file)
-            } catch {
-                fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-            }
+        guard let file = Bundle.main.url(forResource: "petsData", withExtension: "json") else { completion(Result.failure(DownloadServiceError.thirdError)); return }
         
-            do {
-                result = try JSONDecoder().decode([Pet].self, from: data)
-                if let result = result {
-                    print(result)
-                }
-            } catch {
-                fatalError("Couldn't parse \(filename) as \([Pet].self):\n\(error)")
-            }
+        do {
+            data = try Data(contentsOf: file)
+        } catch {
+            completion(Result.failure(DownloadServiceError.secondError)); return }
+        
+        do {
+            result = try JSONDecoder().decode([Pet].self, from: data)
+            if let result = result {
+                completion(Result.success(result)) }
+        } catch {
+            completion(Result.failure(DownloadServiceError.firstError)); return }
     }
+    
 }
 
 
