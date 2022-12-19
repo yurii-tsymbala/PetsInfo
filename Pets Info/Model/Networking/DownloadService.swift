@@ -5,7 +5,7 @@
 //  Created by Yurii on 13.12.2022.
 //
 
-import Foundation
+import UIKit
 
 enum DownloadServiceError: String {
     case firstError = "Json Decoding Error"
@@ -18,7 +18,6 @@ typealias DownloadResponse = (Result<[Pet], DownloadServiceError>) -> Void
 class DownloadService {
     
     func fetchDataFromFile(completion: @escaping DownloadResponse) {
-        
         let result: [Pet]?
         let data: Data
         
@@ -37,6 +36,16 @@ class DownloadService {
             completion(Result.failure(DownloadServiceError.firstError)); return }
     }
     
+    func downloadImage(imageURL: URL, completion: @escaping (Result<UIImage, DownloadServiceError>) -> Void) {
+        let downloadPicTask = URLSession(configuration: .default).dataTask(with: imageURL) { (data,_,error) in
+            guard error == nil, let imageData = data else {completion(Result.failure(.firstError)); return}
+                guard let image = UIImage(data: imageData) else {completion(Result.failure(.secondError)); return}
+                completion(Result.success(image))
+        }
+        downloadPicTask.resume()
+    }
+    
 }
+
 
 
