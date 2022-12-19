@@ -4,7 +4,7 @@
       "description":"Different facts about dogs",
       "image":"https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
       "order":2,
-      "status":"paid",
+      "status":"free",
       "content":[
          {
             "fact":"During the Renaissance, detailed portraits of the dog as a symbol of fidelity and loyalty appeared in mythological, allegorical, and religious art throughout Europe, including works by Leonardo da Vinci, Diego Velázquez, Jan van Eyck, and Albrecht Durer.",

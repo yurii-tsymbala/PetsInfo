@@ -8,16 +8,31 @@
 import UIKit
 
 class PetTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet var cellContentView: UIView!
+    @IBOutlet var cellLabel: UILabel!
+    @IBOutlet var cellImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupView()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func congfigureCell(pet: Pet) {
+        cellLabel.text = pet.title
+    }
+    
+    func configureImage(image: UIImage) {
+        DispatchQueue.main.async {
+            self.cellImageView.image = image
+        }
+        
+    }
+    
+    private func setupView() {
+        cellLabel.font = .italicSystemFont(ofSize: 16)
+        cellImageView.layer.cornerRadius = 4
+        cellImageView.image = .strokedCheckmark
     }
 
 }
