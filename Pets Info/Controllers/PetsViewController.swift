@@ -24,7 +24,7 @@ class PetsViewController: UIViewController {
         downloadService.fetchDataFromFile { [self] result in
             switch result {
             case .success(let pets):
-                petsArray = pets
+                petsArray = pets.sorted{$0.order < $1.order}
             case .failure(let error):
                 print(error)
             }
