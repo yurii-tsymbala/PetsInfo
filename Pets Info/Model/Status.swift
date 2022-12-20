@@ -10,6 +10,5 @@ import Foundation
 enum Status: String, Codable {
     case paid
     case free
-    case comingSoon
 }
 

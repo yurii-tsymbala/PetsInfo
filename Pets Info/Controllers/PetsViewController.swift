@@ -9,9 +9,7 @@ import UIKit
 
 class PetsViewController: UIViewController {
     @IBOutlet weak var petsTableView: UITableView!
-    
     private let downloadService = DownloadService()
-    
     private var petsArray: [Pet]!
     
     override func viewDidLoad() {
@@ -30,13 +28,6 @@ class PetsViewController: UIViewController {
             }
         }
     }
-    
-    private func setupTableView() {
-        petsTableView.dataSource = self
-        petsTableView.delegate = self
-        //petsTableView.estimatedRowHeight = 150
-    }
-    
 }
 
 extension PetsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -60,7 +51,29 @@ extension PetsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let pet = petsArray[indexPath.row]
+        switch pet.status {
+        case .paid:
+            showAlert(pet: pet)
+        case .free:
+            showPetInfoVC(pet: pet)
+        }
+    }
+    
+}
+
+extension PetsViewController {
+    
+    private func setupTableView() {
+        petsTableView.dataSource = self
+        petsTableView.delegate = self
+    }
+    
+    func showAlert(pet: Pet) {
         
     }
-
+    
+    func showPetInfoVC(pet: Pet) {
+        
+    }
 }
