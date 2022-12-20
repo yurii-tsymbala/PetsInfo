@@ -54,7 +54,7 @@ extension PetsViewController: UITableViewDataSource, UITableViewDelegate {
         let pet = petsArray[indexPath.row]
         switch pet.status {
         case .paid:
-            showAlert(pet: pet)
+            showAlert(pet: pet, inViewController: self)
         case .free:
             showPetInfoVC(pet: pet)
         }
@@ -69,8 +69,12 @@ extension PetsViewController {
         petsTableView.delegate = self
     }
     
-    func showAlert(pet: Pet) {
-        
+    func showAlert(pet: Pet, inViewController: UIViewController) {
+        let alert = UIAlertController(title: " \(pet.title) are paid",
+                                      message: "U need to purchase them",
+                                    preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+      inViewController.present(alert, animated: true, completion: nil)
     }
     
     func showPetInfoVC(pet: Pet) {
