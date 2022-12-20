@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4BAF431A2948EF2C003BBF3C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAF43192948EF2C003BBF3C /* Result.swift */; };
+		4BB3C6AE2951E1C400CFDD5E /* PetsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3C6AD2951E1C400CFDD5E /* PetsInfoViewController.swift */; };
 		4BBBFCE42948A3B6006FE8C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBFCE32948A3B6006FE8C8 /* AppDelegate.swift */; };
 		4BBBFCE62948A3B6006FE8C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBFCE52948A3B6006FE8C8 /* SceneDelegate.swift */; };
 		4BBBFCEB2948A3B6006FE8C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BBBFCE92948A3B6006FE8C8 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		4BAF43192948EF2C003BBF3C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		4BB3C6AD2951E1C400CFDD5E /* PetsInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsInfoViewController.swift; sourceTree = "<group>"; };
 		4BBBFCE02948A3B6006FE8C8 /* Pets Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pets Info.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BBBFCE32948A3B6006FE8C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BBBFCE52948A3B6006FE8C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				4BBBFCFE2948A61C006FE8C8 /* PetsViewController.swift */,
+				4BB3C6AD2951E1C400CFDD5E /* PetsInfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BB3C6AE2951E1C400CFDD5E /* PetsInfoViewController.swift in Sources */,
 				4BAF431A2948EF2C003BBF3C /* Result.swift in Sources */,
 				4BBBFCFC2948A571006FE8C8 /* Pet.swift in Sources */,
 				4BBBFCE42948A3B6006FE8C8 /* AppDelegate.swift in Sources */,
